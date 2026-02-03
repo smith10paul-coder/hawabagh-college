@@ -3,97 +3,247 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hawabagh College | Complete Site</title>
+<title>Hawabagh College | Jabalpur</title>
 <style>
-    /* Global Styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
-    body { background-color: #f4f4f4; color: #333; line-height: 1.6; scroll-behavior: smooth; }
-    
-    /* Header & Logo */
-    header { background: #ffffff; padding: 15px 5%; display: flex; align-items: center; border-bottom: 4px solid #003366; }
-    header img { height: 70px; margin-right: 20px; }
-    .college-name h1 { color: #003366; font-size: 24px; text-transform: uppercase; margin: 0; }
-    .college-name p { color: #D4AF37; font-size: 13px; font-weight: bold; }
-    
-    /* Navigation */
-    nav { background: #003366; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-    nav ul { display: flex; list-style: none; justify-content: center; flex-wrap: wrap; padding: 5px; }
-    nav ul li a { color: #ffffff !important; text-decoration: none; padding: 12px 15px; display: block; font-size: 11px; font-weight: 900; text-transform: uppercase; }
-    nav ul li a:hover { background: #D4AF37; color: #003366 !important; }
-    
-    /* Hero Section */
-    .hero { position: relative; height: 400px; background: #000; display: flex; align-items: center; justify-content: center; }
-    .hero img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
-    .hero h2 { position: relative; color: #ffffff; font-size: 32px; text-align: center; text-shadow: 2px 2px 8px #000; padding: 0 20px; }
-    
-    /* Sections */
-    section { max-width: 1000px; margin: 25px auto; padding: 30px; background: #ffffff; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
-    h3 { color: #003366; border-left: 6px solid #D4AF37; padding-left: 15px; margin-bottom: 20px; font-size: 22px; text-transform: uppercase; }
-    p { margin-bottom: 15px; text-align: justify; font-size: 15px; }
-    
-    /* Tables */
-    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-    table td, table th { padding: 12px; border: 1px solid #eee; font-size: 14px; text-align: left; }
-    table th { background: #003366; color: #ffffff; }
-    
-    /* Footer */
-    footer { background: #003366; color: #ffffff; text-align: center; padding: 20px; font-size: 13px; margin-top: 30px; }
+/* --- ORIGINAL CSS STYLING --- */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+body { background: #f4f7f6; color: #333; scroll-behavior: smooth; }
+
+/* Header & Professional Look */
+.header { background: white; padding: 15px; text-align: center; border-bottom: 4px solid #003366; }
+.logo-area { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.logo-area img { height: 60px; }
+.text h1 { color: #003366; font-size: 22px; }
+.text p { color: #D4AF37; font-size: 11px; font-weight: bold; }
+
+/* Navbar with Dropdown */
+.navbar { background: #003366; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; flex-wrap: wrap; }
+.navbar a, .dropbtn { color: white; padding: 15px 12px; font-size: 11px; font-weight: bold; text-decoration: none; text-transform: uppercase; border: none; background: none; cursor: pointer; transition: 0.3s; }
+.navbar a:hover, .dropdown:hover .dropbtn { background: #D4AF37; color: #003366; }
+
+.dropdown { position: relative; display: inline-block; }
+.dropdown-content { display: none; position: absolute; background-color: #003366; min-width: 220px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 1001; border-top: 3px solid #D4AF37; }
+.dropdown-content a { color: white; padding: 12px 16px; display: block; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.dropdown-content a:hover { background-color: #f1f1f1; color: #003366; }
+.dropdown:hover .dropdown-content { display: block; }
+
+/* Content Logic */
+.tab-content { display: none; animation: fadeIn 0.4s ease; }
+.tab-content:target { display: block; }
+#home { display: block; }
+#home:not(:target) { display: none; }
+:not(:target) #home { display: block; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Cards Styling */
+.content-card { max-width: 900px; margin: 30px auto; padding: 35px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); line-height: 1.8; }
+h3 { color: #003366; border-left: 6px solid #D4AF37; padding-left: 12px; margin-bottom: 20px; }
+h4 { color: #003366; margin-top: 20px; margin-bottom: 10px; border-bottom: 1px solid #eee; display: inline-block; }
+
+.mission-box, .notice-box-hindi { background: #fff9e6; padding: 25px; border-radius: 10px; border-left: 6px solid #D4AF37; margin-top: 20px; }
+.timeline-container { border-left: 2px solid #003366; padding-left: 20px; margin-top: 20px; }
+.timeline-item { margin-bottom: 12px; position: relative; font-size: 14px; }
+.year { font-weight: bold; color: #003366; min-width: 60px; display: inline-block; }
+
+/* Table for Fees */
+.fee-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+.fee-table th, .fee-table td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+.fee-table th { background: #003366; color: white; }
+
+/* Hero Section */
+.hero { position: relative; height: 380px; width: 100%; }
+.hero img { width: 100%; height: 100%; object-fit: cover; }
+.hero-overlay { position: absolute; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; padding: 0 20px; }
+.hero-overlay h2 { font-size: 28px; margin-bottom: 10px; }
+
+footer { background: #003366; color: white; text-align: center; padding: 20px; margin-top: 50px; }
 </style>
 </head>
 <body>
 
-<header>
+<header class="header">
+  <div class="logo-area">
     <img src="https://i.ibb.co/My6ByLdL/My6ByLdL.png" alt="Logo">
-    <div class="college-name">
-        <h1>Hawabagh College</h1>
-        <p>Accredited B+ by NAAC | Pioneer Minority Institution</p>
+    <div class="text">
+      <h1>Hawabagh College</h1>
+      <p>Accredited B+ by NAAC | Pioneer Minority Institution</p>
     </div>
+  </div>
 </header>
 
-<nav>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#course">Course</a></li>
-        <li><a href="#fees">Fees</a></li>
-        <li><a href="#contacts">Contacts</a></li>
-    </ul>
+<nav class="navbar">
+  <div class="menu-container">
+    <a href="#home">HOME</a>
+    <div class="dropdown">
+      <a href="javascript:void(0)" class="dropbtn">ABOUT ▾</a>
+      <div class="dropdown-content">
+        <a href="#intro-mission">Introduction & Mission</a>
+        <a href="#growth">College Growth</a>
+        <a href="#vital-info">Vital Instructions</a>
+        <a href="#important-special">महत्वपूर्ण विशेष</a>
+      </div>
+    </div>
+    <a href="#courses">COURSES</a>
+    <a href="#fees-faculty">FEES & FACULTY</a>
+    <a href="#admission">ADMISSION</a>
+    <a href="#important-notice">IMPORTANT NOTICE</a>
+    <a href="#dates">ACADEMIC CALENDAR</a>
+    <a href="#contacts">CONTACT</a>
+  </div>
 </nav>
 
-<div class="hero" id="home">
-    <img src="https://i.ibb.co/hRQgMbB3/hRQgMbB3.jpg" alt="College">
-    <h2>Welcome to Hawabagh College</h2>
+<div class="main-content">
+  <div id="home" class="tab-content">
+    <div class="hero">
+      <img src="https://i.ibb.co/hRQgMbB3/hRQgMbB3.jpg" alt="College Building">
+      <div class="hero-overlay">
+        <h2>Empowering Students Since 1928</h2>
+        <p>Jabalpur, Madhya Pradesh</p>
+      </div>
+    </div>
+  </div>
+
+  <section id="intro-mission" class="tab-content content-card">
+    <h3>Collage Introductions | महाविद्यालय - परिचय</h3>
+    <div class="about-text">
+      <p>Hawabagh College, founded in 1928; stands near the bank of river Narmada with its majestic building and a beautiful campus of natural scenic beauty away from the noisy anal polluted environment of the city. The college is administered and maintained by the Methodist Church in India and has acquired its name from it's locale "Hawabagh." The collage is the Pioneer institute for education in Madhya Pradesh. The foundation of this noble institution was laid when Miss. E.L. Clinton, the then principal of Johnson Girls School felt the need for English teacher's. training, and within 10 months with the Government recognition opened Hawabagh Teachers training Collage with Ms. Hildegard Schlemmer as the first principal. The classes were held in the portico of the missionary bungalow under the banyan tree with just two students and teachers. This was the humble beginning of this great college in the embryonic stage where the campus today is clotted with majestic buildings, administrative blocks, assembly hall, library, gymnasium, Suman Bhawan, Women's Hostel, common room, canteen and a large play ground.</p>
+      <p>The institution has revolutionized women's education by fortifying its students in the cultural and the productive aspects drawing out the best in body, mind and spirit since its inception.</p>
+      <p>Traditions in the college campus have become sacred through accumulated traditional practices like regular Chapel which has distinguished it from it's kind, moral and religious preaching in the Chapel caters to the all round growth and development of the students with the necessary spiritual buildup.</p>
+      <div class="mission-box">
+        <h4>“Mission Statement"</h4>
+        <p>It is laid down in the Memorandum and Constitution of the Governing body of the Educational institutions of Madhya Pradesh Regional Conference of the Methodist Church of India.</p>
+        <p><strong>The aims and objectives of the society shall be as under:</strong></p>
+        <ul style="margin-left:20px;">
+            <li>To administer, maintain and promote educational institutions established under the Madhya Pradesh Regional Conference of the Methodist Church in India.</li>
+            <li>To impart education, especially value-baseal, to provide sound learning, to inculcate spiritual truths and to build good moral character of its students so as to produce worthy citizens of India.</li>
+            <li>To spread goodwill among the students and all stakeholders, to provide edtucation and to open educational institutions primarily for the benefit and privilege of the christian minority community, nevertheless, exercising all other benefits and privileges granted to it as a minority institution by the constitution of India and through the various decisions made thereunder by the Hon'ble Supreme Court of India.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="growth" class="tab-content content-card">
+    <h3>College Growth at a Glance</h3>
+    <div class="timeline-container">
+      <div class="timeline-item"><span class="year">1928</span> Teachers Training College.</div>
+      <div class="timeline-item"><span class="year">1939</span> Hawabagh Teacher's Institute affiliated to Nagpur University.</div>
+      <div class="timeline-item"><span class="year">1946</span> Affiliated to University of Sagar.</div>
+      <div class="timeline-item"><span class="year">1051</span> Department of Nursery Education.</div>
+      <div class="timeline-item"><span class="year">1955</span> Bachelor in Teaching Course, College renamed as Hawabagh Teachers Training College.</div>
+      <div class="timeline-item"><span class="year">1959</span> Addition of Arts and Science faculties.</div>
+      <div class="timeline-item"><span class="year">1961</span> Hawabagh Teachers Training college changed to Hawabagh Women's college affiliated to University of Jabalpur (M.P.)</div>
+      <div class="timeline-item"><span class="year">1962</span> Spacious Library and auditorium were constructed.</div>
+      <div class="timeline-item"><span class="year">1963</span> Master's Degree In Education (M.ed.) introduced.</div>
+      <div class="timeline-item"><span class="year">1966</span> Addition of Science Block and a large Gymnasium to the college Campus.</div>
+      <div class="timeline-item"><span class="year">1978</span> Golden Jubilee Celebration.</div>
+      <div class="timeline-item"><span class="year">1984</span> M.Sc. Chemistry introduced.</div>
+      <div class="timeline-item"><span class="year">1995</span> M.A. English Literature introduced.</div>
+      <div class="timeline-item"><span class="year">1996</span> College was recognized by University Gorant Commission Under 2(f) & 12(b).</div>
+      <div class="timeline-item"><span class="year">1996</span> Commerce Faculty with Computer Application introduced.</div>
+      <div class="timeline-item"><span class="year">1999</span> M.A. Economics, Geography and political science introduced.</div>
+      <div class="timeline-item"><span class="year">2006</span> BBA, BCA and B.Sc. Biotechnology introduced.</div>
+      <div class="timeline-item"><span class="year">2008</span> M. Com, introduced.</div>
+      <div class="timeline-item"><span class="year">2008</span> Hawabagh Women's College changed to Hawabagh College Jabalpur. (M.P.)</div>
+      <div class="timeline-item" style="border-left: 3px solid #D4AF37; padding-left: 17px;"><span class="year" style="color:#D4AF37">2020</span> NEP was introduced at the undergraduate level for B.A., B.Sc., B.Com, and B.B.A.</div>
+    </div>
+  </section>
+
+  <section id="vital-info" class="tab-content content-card">
+    <h3>Vital Instructions</h3>
+    <div class="vital-detail-box">
+      <p><strong>Medium of Instruction:</strong> English/Hindi.</p>
+      <p><strong>Academic Session:</strong> Commences from 1st of July.</p>
+      <h4>Admission</h4>
+      <p>Admission forms. con be obtained after the <strong>1st of May 2024</strong> from the college office during working hours on all working days.</p>
+      <h4>Fee Structure</h4>
+      <p>All students seeking admission to various courses in the college can pay their fees in <strong>two instralments</strong>. Students should compulsorily deposit the full fees before Submission of examination forms. The fees are concessions and scholarships are available as per the Government rules. Meritorious students, outstanding sports women and physically challenged students are considered for special fees structure by the College.</p>
+    </div>
+  </section>
+
+  <section id="important-special" class="tab-content content-card">
+    <h3>महत्वपूर्ण (1973)</h3>
+    <div class="notice-box-hindi">
+      <p><strong>उपस्थिति:</strong> म.प्र. विश्वविद्यालय अधिनियम, 1973 के अधीन बनाये गये अध्यादेश क्रमांक 6 के अनुसार पात्रता के लिये 75 प्रतिशत उपस्थिति आवश्यक है। उपस्थिति पूरी न होने पर विद्यार्थी को परीक्षा की पात्रता नहीं होगी।</p>
+      <p><strong>रैगिंग:</strong> मान. सर्वोच्च न्यायालय के आदेशानुसार रैगिंग एक दण्डनीय अपराध है। महाविद्यालय परिसर मे रैगिंग लेना पूरी तरह प्रतिबंधित है। दोषी विद्यार्थी को संस्था से निष्काषित किया जायेगा।</p>
+      <p><strong>दण्ड:</strong> मध्यप्रदेश विश्वविद्यालय अधिनियम, 1973 के अध्यादेश क्र. 7 की धारा 13 के अनुसार अनुशासन भंग करने पर कक्षाओं या महाविद्यालय से निलम्बन, या परीक्षा से रोकने का प्रावधान है।</p>
+    </div>
+  </section>
+
+  <section id="fees-faculty" class="tab-content content-card">
+    <h3>HAWABAGH COLLEGE, JABALPUR - SESSION 2025-26</h3>
+    
+    <h4>1. Yearly Fees Structure (UG & PG)</h4>
+    <table class="fee-table">
+        <thead><tr><th>Course</th><th>Yearly Fees (Rs.)</th></tr></thead>
+        <tbody>
+            <tr><td>B.Com. Plain (I, II, III Year)</td><td>9,890</td></tr>
+            <tr><td>B.Com. CA & Tax (I, II, III Year)</td><td>12,590</td></tr>
+            <tr><td>B.A. (I, II, III Year)</td><td>8,900</td></tr>
+            <tr><td>B.B.A. (I, II, III Year)</td><td>15,760 (July: 7,880 | Dec: 7,880)</td></tr>
+            <tr><td>B.Sc. PCM/CBZ (I, II, III Year)</td><td>9,640</td></tr>
+            <tr><td>B.Sc. Computer Science / Bio-Tech (I, II, III Year)</td><td>15,040</td></tr>
+            <tr><td>M.A. (All Semesters)</td><td>8,000 Total (4,000 per Sem)</td></tr>
+            <tr><td>M.Com. (All Semesters)</td><td>9,500 Total (4,750 per Sem)</td></tr>
+            <tr><td>M.Sc. (Sem I & II)</td><td>14,100 Total (7,050 per Sem)</td></tr>
+            <tr><td>M.Sc. (Sem III & IV)</td><td>13,570 Total (6,785 per Sem)</td></tr>
+        </tbody>
+    </table>
+
+    <h4>2. Additional Fees & Notes</h4>
+    <ul style="margin-left:20px; font-size: 14px;">
+        <li>Practical Charges (B.A.): Rs. 200 extra per subject.</li>
+        <li>Geography Practical: Rs. 1,000 extra per year.</li>
+        <li>Vocational/Internship Project: Rs. 150 extra.</li>
+        <li>RDVV Enrollment Fee (UG Part-I): Rs. 330.</li>
+        <li>Immigration Fee: Rs. 330 (CBSE) / Rs. 4,000 (Professional/Out of MP).</li>
+        <li>M.P. Online Portal Fee: Rs. 50.</li>
+    </ul>
+
+    <h4>3. Teaching Faculty Details</h4>
+    <div style="font-size: 14px; line-height: 1.6;">
+        <p><strong>Arts & Social Sciences:</strong> Prof. Alok Chansoria (Principal), Dr. B. Shukla (Head), Dr. N. Dubey, Dr. Jayshree Dixit, Dr. Mamta Mohan, Dr. Anita Upadhyay.</p>
+        <p><strong>Education:</strong> Dr. Himani Upadhyaya (Head), Mrs. Bandana Sharma, Dr. Asha Shrivastava, Mr. Abhinav Saikhedkar.</p>
+        <p><strong>Science:</strong> Dr. Seema Singh (Physics Head), Dr. Kavita Sharma (Chemistry/Science Head).</p>
+        <p><strong>Commerce & BBA:</strong> Dr. Ashok Soni (Head), Dr. Kanchan Saigal, Dr. Sudhish Patel, Dr. Anudita Badgaiyan.</p>
+    </div>
+
+    <h4>4. Non-Teaching Staff</h4>
+    <div style="font-size: 14px;">
+        <p><strong>Librarian:</strong> Mr. Sachin George.</p>
+        <p><strong>Office Staff:</strong> Mr. Arun Massey (HC), Mr. Girish Humne (LDC), Mr. Pawan Verma (LDC), Mr. Praveen Butey (LDC).</p>
+        <p><strong>Support Staff:</strong> Mr. Vijay Banshkar (Peon), Mr. Sanjeev Khare (Peon), Mr. Sharma Bahadur (Choukidar), Mr. Lakhan Singh Uikey (Choukidar).</p>
+    </div>
+  </section>
+
+  <section id="important-notice" class="tab-content content-card">
+    <h3>Important Notices - आवश्यक सूचनायें</h3>
+    <div class="notice-box-hindi" style="font-size:14px; line-height:1.7;">
+      <p>1. महाविद्यालय में स्नातक स्तर पर वार्षिक पद्धति से अध्यापन एवं परीक्षा कार्य होता है।</p>
+      <p>2. स्नातकोलर कक्षायो में यथावत सेमेस्टर पद्धति से अध्यापन एवं परीक्षा कार्य होगा।</p>
+      <p>3. आवेदक एवं उनके अभिभावक से अपेक्षा है कि विवरणिका को पूर्णतः पढ़ लें।</p>
+      <p>4. विद्यार्थी अपना प्रवेश शुल्क जमा करें तथा मूल प्रवेश रसीद प्राप्त करें। मूल रसीद सावधानी पूर्वक सम्हालकर रखें।</p>
+      <p>5. प्रवेश आवेदन फार्म के साथ आवश्यक प्रमाण पत्र संलग्न करें। सत्यापन हेतु मूल प्रमाण-पत्र प्रस्तुत करें।</p>
+      <p>6. प्रवेश संबंधी सूचनाएँ समय-समय पर सूचना पटल पर चस्पा की जाएगी। विद्यार्थी नियमित अवलोकन करें।</p>
+      <p>7. अपूर्ण आवेदन पर विचार नहीं किया जाएगा।</p>
+      <p>8. प्रत्येक विद्यार्थी आवेदन के साथ स्वयं के पते लिखे तीन पोस्टकार्ड संलग्न करे।</p>
+      <p>9. निर्धारित तिथि के बाद प्रवेश सम्भव नहीं होगा।</p>
+      <p>10. गलत जानकारी देने पर प्राचार्य को प्रवेश निरस्त करने का पूर्ण अधिकार होगा।</p>
+      <p>11. लगातार 15 दिवस अनुपस्थित रहने पर प्रवेश निरस्त किया जा सकता है।</p>
+      <p>12. महाविद्यालय छोड़ने पर कॉशन मनी के अतिरिक्त अन्य कोई शुल्क वापिस नहीं किया जायेगा।</p>
+      <p>13. <strong>रैगिंग एक अपराध है:</strong> जीरो टोलरेंस नीति का पालन किया जाता है। उल्लंघन करने वालों के विरुद्ध कड़ी कानूनी कार्यवाही की जायेगी।</p>
+    </div>
+  </section>
+
+  <section id="courses" class="tab-content content-card"><h3>Available Courses</h3></section>
+  <section id="admission" class="tab-content content-card"><h3>Admission Process</h3></section>
+  <section id="dates" class="tab-content content-card"><h3>Academic Calendar</h3></section>
+  <section id="contacts" class="tab-content content-card">
+    <h3>Contact Details</h3>
+    <p>Narbada Road, Jabalpur (M.P.) 482001</p>
+  </section>
 </div>
 
-<section id="about">
-    <h3>About Our Institution</h3>
-    <p>Hawabagh College, founded in 1928, stands near the bank of river Narmada. Administered by the Methodist Church in India, it is a Pioneer institute for Women's education in Madhya Pradesh.</p>
-</section>
-
-<section id="course">
-    <h3>Academic Programs</h3>
-    <p>We offer various programs under NEP 2020 including B.Com, B.B.A. (Co-Ed), and M.Com.</p>
-</section>
-
-<section id="fees">
-    <h3>Fees Structure (2024-25)</h3>
-    <table>
-        <tr><th>Course Name</th><th>Yearly Fees</th></tr>
-        <tr><td>B.A. (Year I, II, III)</td><td>₹ 8,900</td></tr>
-        <tr><td>B.Com. Plain</td><td>₹ 9,890</td></tr>
-        <tr><td>B.B.A. (Co-Ed)</td><td>₹ 15,760</td></tr>
-    </table>
-</section>
-
-<section id="contacts">
-    <h3>Contact & Location</h3>
-    <p><b>Address:</b> Narbada Road, Jabalpur (M.P.) 482001.</p>
-    <p><b>Principal:</b> 0761-2663345 | <b>Office:</b> 0761-2666535.</p>
-</section>
-
-<footer>
-    &copy; 2026 Hawabagh College, Jabalpur. All Rights Reserved.
-</footer>
-
+<footer>&copy; 2026 Hawabagh College, Jabalpur. All Rights Reserved.</footer>
 </body>
 </html>
